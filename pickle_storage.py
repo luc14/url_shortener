@@ -1,10 +1,5 @@
 import pickle, os
-
-class ObjectExistsError(Exception):
-    pass
-
-class ObjectNotFoundError(Exception):
-    pass
+from base_storage import ObjectExistsError, ObjectNotFoundError
 
 class PickleStorage:
     def __init__(self, path):
