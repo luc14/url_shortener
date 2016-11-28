@@ -10,27 +10,6 @@ def plus_list_inplace(lst, chars):
     start = chars[0]
     end = chars[-1]
     plus_dict = {chars[i]: chars[i+1] for i in range(-1, len(chars)-1)}
-    #chars_n = len(chars)
-    #plus_dict = {chars[i]: chars[(i+1)%chars_n] for i in range(chars_n)}
-    n = len(lst)
-
-    def inner_plus(i):
-        '''changes lst[:i] to be in sequence
-        '''
-        if i == 0:
-            lst[0:0] = [start]
-        elif lst[i-1] != end:
-            lst[i-1] = plus_dict[lst[i-1]]
-        else:
-            lst[i-1] = start
-            inner_plus(i-1)
-
-    inner_plus(n)
-
-def plus_list_inplace(lst, chars):
-    start = chars[0]
-    end = chars[-1]
-    plus_dict = {chars[i]: chars[i+1] for i in range(-1, len(chars)-1)}
     i = len(lst)-1
     carry_over = True
     while carry_over and i >= 0:
@@ -51,8 +30,4 @@ def plus_list(lst, chars):
     plus_list_inplace(result, chars)
     return result
 
-assert plus_str('zz', chars = string.ascii_lowercase) == 'aaa'
-assert plus_str('aaa', chars = string.ascii_lowercase) == 'aab'
-assert plus_str('$$', chars = '!@$') == '!!!'
-print('tests passed')
 
